@@ -1,0 +1,24 @@
+{
+  "id": "ru-76757",
+  "label_before": "positive",
+  "label_after": "positive",
+  "probs_before": {
+    "negative": 0.05039266496896744,
+    "neutral": 0.2472311407327652,
+    "positive": 0.7023761868476868
+  },
+  "probs_after": {
+    "negative": 0.05039266496896744,
+    "neutral": 0.2472311407327652,
+    "positive": 0.7023761868476868
+  },
+  "abs_diff": {
+    "negative": 0.0,
+    "neutral": 0.0,
+    "positive": 0.0
+  },
+  "max_abs_diff": 0.0,
+  "tolerance": 1e-05,
+  "passed": true,
+  "device": "cpu"
+}

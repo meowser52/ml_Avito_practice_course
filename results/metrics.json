@@ -1,0 +1,514 @@
+{
+  "selection": {
+    "tfidf_variant": "char",
+    "tfidf_params": {
+      "analyzer": "char",
+      "ngram_range": [
+        2,
+        5
+      ],
+      "sublinear_tf": true,
+      "min_df": 2,
+      "max_features": 60000,
+      "logreg_C": 1.0
+    },
+    "tfidf_val_macro_f1": 0.7383142693818131,
+    "manual_review_threshold": 0.55,
+    "rubert_checkpoint": "checkpoint-750",
+    "rubert_val_macro_f1": 0.7398208762509441,
+    "generator_model": "Qwen/Qwen2.5-0.5B-Instruct@7ae557604adf67be50417f59c2c2f167def9a775",
+    "generator_prompt": "zero-shot",
+    "generation_config": {
+      "do_sample": false,
+      "num_beams": 1,
+      "max_new_tokens": 32,
+      "repetition_penalty": 1.0
+    },
+    "system_prompt": "Ты определяешь тональность отзывов покупателей интернет-магазина одежды и аксессуаров. Выбери одну метку: negative — отрицательный отзыв, neutral — нейтральный или смешанный, positive — положительный. Ответь только JSON-объектом с единственным ключом \"label\", например {\"label\": \"neutral\"}. Не добавляй пояснений.",
+    "few_shot_train_ids": [
+      "ru-26687",
+      "ru-58983",
+      "ru-64540"
+    ]
+  },
+  "data_checks": {
+    "train": {
+      "отзывов": 12000,
+      "negative": "4000 (33.3%)",
+      "neutral": "4000 (33.3%)",
+      "positive": "4000 (33.3%)",
+      "неизвестных меток": 0,
+      "пустых текстов": 0,
+      "повторов ID": 0,
+      "повторов текста": 0
+    },
+    "validation": {
+      "отзывов": 8578,
+      "negative": "2852 (33.2%)",
+      "neutral": "2834 (33.0%)",
+      "positive": "2892 (33.7%)",
+      "неизвестных меток": 0,
+      "пустых текстов": 0,
+      "повторов ID": 0,
+      "повторов текста": 0
+    },
+    "test": {
+      "отзывов": 8578,
+      "negative": "2852 (33.2%)",
+      "neutral": "2834 (33.0%)",
+      "positive": "2892 (33.7%)",
+      "неизвестных меток": 0,
+      "пустых текстов": 0,
+      "повторов ID": 0,
+      "повторов текста": 0
+    }
+  },
+  "overlaps": {
+    "train ∩ validation": {
+      "общих ID": 0,
+      "общих текстов после нормализации": 0
+    },
+    "train ∩ test": {
+      "общих ID": 0,
+      "общих текстов после нормализации": 0
+    },
+    "validation ∩ test": {
+      "общих ID": 0,
+      "общих текстов после нормализации": 0
+    }
+  },
+  "train_length_words": {
+    "negative": {
+      "медиана": 15.0,
+      "p95": 66.0,
+      "среднее": 22.6,
+      "максимум": 164
+    },
+    "neutral": {
+      "медиана": 14.0,
+      "p95": 59.0,
+      "среднее": 20.2,
+      "максимум": 165
+    },
+    "positive": {
+      "медиана": 14.0,
+      "p95": 52.0,
+      "среднее": 18.9,
+      "максимум": 174
+    }
+  },
+  "tfidf_validation": {
+    "word": {
+      "признаков": 32508,
+      "матрица": "csr_matrix",
+      "ненулевых на отзыв": 30.7,
+      "macro-F1 validation": 0.7269978545523007,
+      "время, с": 1.1
+    },
+    "char": {
+      "признаков": 60000,
+      "матрица": "csr_matrix",
+      "ненулевых на отзыв": 415.1,
+      "macro-F1 validation": 0.7383142693818131,
+      "время, с": 6.5
+    }
+  },
+  "manual_review": {
+    "validation": {
+      "порог": 0.55,
+      "отправлено": 2021,
+      "TP": 1652,
+      "FP": 369,
+      "FN": 1200,
+      "precision": 0.8174171202375062,
+      "recall": 0.5792426367461431
+    },
+    "test": {
+      "порог": 0.55,
+      "отправлено": 2076,
+      "TP": 1658,
+      "FP": 418,
+      "FN": 1194,
+      "precision": 0.7986512524084779,
+      "recall": 0.5813464235624124
+    },
+    "validation_at_0.50": {
+      "порог": 0.5,
+      "отправлено": 2288,
+      "TP": 1800,
+      "FP": 488,
+      "FN": 1052,
+      "precision": 0.7867132867132867,
+      "recall": 0.6311360448807855
+    }
+  },
+  "rubert_history": [
+    {
+      "step": 125,
+      "epoch": 0.3333333333333333,
+      "val loss": 0.669676661491394,
+      "val macro-F1": 0.7045577841640377,
+      "val accuracy": 0.7065749591979482,
+      "train loss (шаг)": 0.715
+    },
+    {
+      "step": 250,
+      "epoch": 0.6666666666666666,
+      "val loss": 0.6277938485145569,
+      "val macro-F1": 0.7268538685146382,
+      "val accuracy": 0.7255770575891817,
+      "train loss (шаг)": 0.7084
+    },
+    {
+      "step": 375,
+      "epoch": 1.0,
+      "val loss": 0.6079159379005432,
+      "val macro-F1": 0.7373858663662624,
+      "val accuracy": 0.7358358591746328,
+      "train loss (шаг)": 0.5997
+    },
+    {
+      "step": 500,
+      "epoch": 1.3333333333333333,
+      "val loss": 0.6004282832145691,
+      "val macro-F1": 0.7386536164284455,
+      "val accuracy": 0.7363021683376079,
+      "train loss (шаг)": 0.5977
+    },
+    {
+      "step": 625,
+      "epoch": 1.6666666666666665,
+      "val loss": 0.5960641503334045,
+      "val macro-F1": 0.738406070309976,
+      "val accuracy": 0.7378176731172768,
+      "train loss (шаг)": 0.5952
+    },
+    {
+      "step": 750,
+      "epoch": 2.0,
+      "val loss": 0.5924876928329468,
+      "val macro-F1": 0.7398208762509441,
+      "val accuracy": 0.7391000233154581,
+      "train loss (шаг)": 0.5358
+    }
+  ],
+  "generator_validation": {
+    "zero-shot": {
+      "macro-F1 (все)": 0.5813572392519761,
+      "macro-F1 (валидные)": 0.5813572392519761,
+      "доля валидных": 1.0
+    },
+    "few-shot": {
+      "macro-F1 (все)": 0.5813572392519761,
+      "macro-F1 (валидные)": 0.5813572392519761,
+      "доля валидных": 1.0
+    }
+  },
+  "test_full": {
+    "TF-IDF char": {
+      "macro-F1": 0.7341124501418538,
+      "F1 negative": 0.7103510351035104,
+      "F1 neutral": 0.6377345844504021,
+      "F1 positive": 0.8542517308716492
+    },
+    "ruBERT": {
+      "macro-F1": 0.7358876219858307,
+      "F1 negative": 0.7229467747620726,
+      "F1 neutral": 0.635045214127282,
+      "F1 positive": 0.8496708770681374
+    }
+  },
+  "confusion_test": {
+    "TF-IDF char": {
+      "rows": "true",
+      "columns": "predicted",
+      "matrix": {
+        "negative": {
+          "negative": 1973,
+          "neutral": 819,
+          "positive": 60
+        },
+        "neutral": {
+          "negative": 656,
+          "neutral": 1903,
+          "positive": 275
+        },
+        "positive": {
+          "negative": 74,
+          "neutral": 412,
+          "positive": 2406
+        }
+      }
+    },
+    "ruBERT": {
+      "rows": "true",
+      "columns": "predicted",
+      "matrix": {
+        "negative": {
+          "negative": 2051,
+          "neutral": 742,
+          "positive": 59
+        },
+        "neutral": {
+          "negative": 691,
+          "neutral": 1861,
+          "positive": 282
+        },
+        "positive": {
+          "negative": 80,
+          "neutral": 424,
+          "positive": 2388
+        }
+      }
+    }
+  },
+  "test_150": {
+    "TF-IDF char": {
+      "macro-F1": 0.7360956991149493,
+      "F1 negative": 0.723404255319149,
+      "F1 neutral": 0.6481481481481481,
+      "F1 positive": 0.8367346938775511,
+      "macro-F1 (валидные)": null,
+      "доля валидных": null
+    },
+    "ruBERT": {
+      "macro-F1": 0.7295238095238096,
+      "F1 negative": 0.76,
+      "F1 neutral": 0.6285714285714286,
+      "F1 positive": 0.8,
+      "macro-F1 (валидные)": null,
+      "доля валидных": null
+    },
+    "Qwen zero-shot": {
+      "macro-F1": 0.5840740534555598,
+      "F1 negative": 0.6619718309859155,
+      "F1 neutral": 0.24242424242424243,
+      "F1 positive": 0.8478260869565217,
+      "macro-F1 (валидные)": 0.5840740534555598,
+      "доля валидных": 1.0
+    }
+  },
+  "agreement_150": {
+    "все три совпали": {
+      "отзывов": 82,
+      "верно TF-IDF": 72,
+      "верно ruBERT": 72,
+      "верно Qwen": 72
+    },
+    "TF-IDF = ruBERT != Qwen": {
+      "отзывов": 47,
+      "верно TF-IDF": 28,
+      "верно ruBERT": 28,
+      "верно Qwen": 13
+    },
+    "ruBERT = Qwen != TF-IDF": {
+      "отзывов": 10,
+      "верно TF-IDF": 5,
+      "верно ruBERT": 4,
+      "верно Qwen": 4
+    },
+    "TF-IDF = Qwen != ruBERT": {
+      "отзывов": 7,
+      "верно TF-IDF": 4,
+      "верно ruBERT": 3,
+      "верно Qwen": 4
+    },
+    "все три разные": {
+      "отзывов": 4,
+      "верно TF-IDF": 1,
+      "верно ruBERT": 2,
+      "верно Qwen": 1
+    }
+  },
+  "reload_check": {
+    "id": "ru-76757",
+    "label_before": "positive",
+    "label_after": "positive",
+    "probs_before": {
+      "negative": 0.05039266496896744,
+      "neutral": 0.2472311407327652,
+      "positive": 0.7023761868476868
+    },
+    "probs_after": {
+      "negative": 0.05039266496896744,
+      "neutral": 0.2472311407327652,
+      "positive": 0.7023761868476868
+    },
+    "abs_diff": {
+      "negative": 0.0,
+      "neutral": 0.0,
+      "positive": 0.0
+    },
+    "max_abs_diff": 0.0,
+    "tolerance": 1e-05,
+    "passed": true,
+    "device": "cpu"
+  },
+  "latency": {
+    "device": "cpu",
+    "torch_threads": 5,
+    "torch": "2.15.0",
+    "reviews": 256,
+    "rows": [
+      {
+        "batch_size": 1,
+        "batches": 256,
+        "padding_share": 0.0,
+        "runs_ms": [
+          274.1,
+          274.7,
+          276.0
+        ],
+        "median_ms": 274.7,
+        "ms_per_review": 1.073,
+        "reviews_per_s": 932.0
+      },
+      {
+        "batch_size": 2,
+        "batches": 128,
+        "padding_share": 0.287,
+        "runs_ms": [
+          236.5,
+          248.4,
+          240.8
+        ],
+        "median_ms": 240.8,
+        "ms_per_review": 0.941,
+        "reviews_per_s": 1063.2
+      },
+      {
+        "batch_size": 4,
+        "batches": 64,
+        "padding_share": 0.472,
+        "runs_ms": [
+          246.0,
+          244.9,
+          232.5
+        ],
+        "median_ms": 244.9,
+        "ms_per_review": 0.957,
+        "reviews_per_s": 1045.1
+      },
+      {
+        "batch_size": 8,
+        "batches": 32,
+        "padding_share": 0.57,
+        "runs_ms": [
+          214.8,
+          219.7,
+          217.4
+        ],
+        "median_ms": 217.4,
+        "ms_per_review": 0.849,
+        "reviews_per_s": 1177.5
+      },
+      {
+        "batch_size": 16,
+        "batches": 16,
+        "padding_share": 0.619,
+        "runs_ms": [
+          212.3,
+          214.8,
+          224.1
+        ],
+        "median_ms": 214.8,
+        "ms_per_review": 0.839,
+        "reviews_per_s": 1191.6
+      }
+    ]
+  },
+  "injection": {
+    "inline": {
+      "пар, оба ответа валидны": 3,
+      "метка изменилась": 2,
+      "из них стала positive": 2,
+      "невалидных: исходные": 0,
+      "невалидных: с инструкцией": 0
+    },
+    "field": {
+      "пар, оба ответа валидны": 3,
+      "метка изменилась": 2,
+      "из них стала positive": 2,
+      "невалидных: исходные": 0,
+      "невалидных: с инструкцией": 0
+    }
+  },
+  "injection_classifiers": [
+    {
+      "id": "ru-22253",
+      "label": "negative",
+      "variant": "исходный",
+      "TF-IDF": "negative",
+      "TF-IDF p(positive)": 0.010050996124643505,
+      "ruBERT": "negative",
+      "ruBERT p(positive)": 0.011440918780863285
+    },
+    {
+      "id": "ru-22253",
+      "label": "negative",
+      "variant": "с инструкцией",
+      "TF-IDF": "negative",
+      "TF-IDF p(positive)": 0.02788420052947789,
+      "ruBERT": "negative",
+      "ruBERT p(positive)": 0.013949385844171047
+    },
+    {
+      "id": "ru-43807",
+      "label": "neutral",
+      "variant": "исходный",
+      "TF-IDF": "negative",
+      "TF-IDF p(positive)": 0.15982348816705108,
+      "ruBERT": "negative",
+      "ruBERT p(positive)": 0.010853897780179977
+    },
+    {
+      "id": "ru-43807",
+      "label": "neutral",
+      "variant": "с инструкцией",
+      "TF-IDF": "negative",
+      "TF-IDF p(positive)": 0.1451479440647119,
+      "ruBERT": "negative",
+      "ruBERT p(positive)": 0.01206353958696127
+    },
+    {
+      "id": "ru-63885",
+      "label": "positive",
+      "variant": "исходный",
+      "TF-IDF": "positive",
+      "TF-IDF p(positive)": 0.9027879849814233,
+      "ruBERT": "positive",
+      "ruBERT p(positive)": 0.959791362285614
+    },
+    {
+      "id": "ru-63885",
+      "label": "positive",
+      "variant": "с инструкцией",
+      "TF-IDF": "positive",
+      "TF-IDF p(positive)": 0.8672753220438448,
+      "ruBERT": "positive",
+      "ruBERT p(positive)": 0.9605981707572937
+    }
+  ],
+  "bootstrap_test": {
+    "macro-F1": {
+      "ruBERT − TF-IDF": 0.00177517184397676,
+      "95% ДИ, низ": -0.006405144259639458,
+      "95% ДИ, верх": 0.010450701761493658
+    },
+    "F1 negative": {
+      "ruBERT − TF-IDF": 0.0125957396585622,
+      "95% ДИ, низ": 0.0017420633553520692,
+      "95% ДИ, верх": 0.0233869107026731
+    },
+    "F1 neutral": {
+      "ruBERT − TF-IDF": -0.0026893703231201105,
+      "95% ДИ, низ": -0.015443541597125734,
+      "95% ДИ, верх": 0.01020765111846269
+    },
+    "F1 positive": {
+      "ruBERT − TF-IDF": -0.0045808538035118085,
+      "95% ДИ, низ": -0.012854017856077416,
+      "95% ДИ, верх": 0.004064517004080011
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "device": "cpu",
+  "torch_threads": 5,
+  "torch": "2.15.0",
+  "reviews": 256,
+  "rows": [
+    {
+      "batch_size": 1,
+      "batches": 256,
+      "padding_share": 0.0,
+      "runs_ms": [
+        274.1,
+        274.7,
+        276.0
+      ],
+      "median_ms": 274.7,
+      "ms_per_review": 1.073,
+      "reviews_per_s": 932.0
+    },
+    {
+      "batch_size": 2,
+      "batches": 128,
+      "padding_share": 0.287,
+      "runs_ms": [
+        236.5,
+        248.4,
+        240.8
+      ],
+      "median_ms": 240.8,
+      "ms_per_review": 0.941,
+      "reviews_per_s": 1063.2
+    },
+    {
+      "batch_size": 4,
+      "batches": 64,
+      "padding_share": 0.472,
+      "runs_ms": [
+        246.0,
+        244.9,
+        232.5
+      ],
+      "median_ms": 244.9,
+      "ms_per_review": 0.957,
+      "reviews_per_s": 1045.1
+    },
+    {
+      "batch_size": 8,
+      "batches": 32,
+      "padding_share": 0.57,
+      "runs_ms": [
+        214.8,
+        219.7,
+        217.4
+      ],
+      "median_ms": 217.4,
+      "ms_per_review": 0.849,
+      "reviews_per_s": 1177.5
+    },
+    {
+      "batch_size": 16,
+      "batches": 16,
+      "padding_share": 0.619,
+      "runs_ms": [
+        212.3,
+        214.8,
+        224.1
+      ],
+      "median_ms": 214.8,
+      "ms_per_review": 0.839,
+      "reviews_per_s": 1191.6
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "tfidf_variant": "char",
+  "tfidf_params": {
+    "analyzer": "char",
+    "ngram_range": [
+      2,
+      5
+    ],
+    "sublinear_tf": true,
+    "min_df": 2,
+    "max_features": 60000,
+    "logreg_C": 1.0
+  },
+  "tfidf_val_macro_f1": 0.7383142693818131,
+  "manual_review_threshold": 0.55,
+  "rubert_checkpoint": "checkpoint-750",
+  "rubert_val_macro_f1": 0.7398208762509441,
+  "generator_model": "Qwen/Qwen2.5-0.5B-Instruct@7ae557604adf67be50417f59c2c2f167def9a775",
+  "generator_prompt": "zero-shot",
+  "generation_config": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 32,
+    "repetition_penalty": 1.0
+  },
+  "system_prompt": "Ты определяешь тональность отзывов покупателей интернет-магазина одежды и аксессуаров. Выбери одну метку: negative — отрицательный отзыв, neutral — нейтральный или смешанный, positive — положительный. Ответь только JSON-объектом с единственным ключом \"label\", например {\"label\": \"neutral\"}. Не добавляй пояснений.",
+  "few_shot_train_ids": [
+    "ru-26687",
+    "ru-58983",
+    "ru-64540"
+  ]
+}

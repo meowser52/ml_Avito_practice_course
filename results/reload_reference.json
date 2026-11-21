@@ -1,0 +1,12 @@
+{
+  "id": "ru-76757",
+  "label": "positive",
+  "probs": {
+    "negative": 0.05039266496896744,
+    "neutral": 0.2472311407327652,
+    "positive": 0.7023761868476868
+  },
+  "device": "cpu",
+  "max_length": 128,
+  "checkpoint": "checkpoint-750"
+}
